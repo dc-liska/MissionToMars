@@ -17,6 +17,12 @@ import pandas as pd
 
 #Scrape the NASA Mars News Site ( https://mars.nasa.gov/news/ ) and collect the latest News Title and Paragraph Text.
 def get_Mars_News():
+    #Import Dependencies
+    from splinter import Browser
+    from bs4 import BeautifulSoup as bs
+    import pandas as pd
+    
+    
     def init_browser():
         executable_path = {"executable_path": "resources/chromedriver"}
         return Browser("chrome", **executable_path, headless=False)
@@ -45,6 +51,11 @@ def get_Mars_News():
 
 #Visit https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars for JPL Featured Space Image and use splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called featured_image_url.
 def get_featured_image():
+    #Import Dependencies
+    from splinter import Browser
+    from bs4 import BeautifulSoup as bs
+    import pandas as pd
+    
     featured_pic_url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(featured_pic_url)
 
@@ -71,6 +82,11 @@ def get_featured_image():
 #Visit the Mars Weather twitter account [here](https://twitter.com/marswxreport?lang=en) and scrape the latest Mars
 #weather tweet from the page. Save the tweet text for the weather report as a variable called `mars_weather`.
 def get_Mars_Weather():
+    #Import Dependencies
+    from splinter import Browser
+    from bs4 import BeautifulSoup as bs
+    import pandas as pd
+    
     latest_mars_weather_url = "https://twitter.com/marswxreport?lang=en"
     browser.visit(latest_mars_weather_url)
 
@@ -93,6 +109,11 @@ def get_Mars_Weather():
 #Visit the Mars Facts webpage [here](https://space-facts.com/mars/) and use Pandas to scrape the table containing
 #facts about the planet including Diameter, Mass, etc. Use Pandas to convert the data to a HTML table string.
 def get_Mars_Facts_Table():
+    #Import Dependencies
+    from splinter import Browser
+    from bs4 import BeautifulSoup as bs
+    import pandas as pd
+    
     mars_facts_url = "https://space-facts.com/mars/"
 
     facts_table = pd.read_html(mars_facts_url)[0]
@@ -108,6 +129,7 @@ def get_Mars_Facts_Table():
 
 
 def get_Mars_Hemisphere_Images():
+
     hemisphere_image_urls = [
         {"title": "Valles Marineris Hemisphere", "img_url": "http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg"},
         {"title": "Cerberus Hemisphere", "img_url": "http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg"},
