@@ -34,7 +34,8 @@ def get_Mars_News():
 
     #print(news_title)
     #print(news_text)
-    return [news_title,news_text]
+    news_results= [news_title,news_text]
+    return news_results
 
 
 # Mars Featured Image
@@ -91,7 +92,7 @@ def get_Mars_Weather():
 
 #Visit the Mars Facts webpage [here](https://space-facts.com/mars/) and use Pandas to scrape the table containing
 #facts about the planet including Diameter, Mass, etc. Use Pandas to convert the data to a HTML table string.
-def get_Mars_Facts_Table
+def get_Mars_Facts_Table():
     mars_facts_url = "https://space-facts.com/mars/"
 
     facts_table = pd.read_html(mars_facts_url)[0]
@@ -114,4 +115,21 @@ def get_Mars_Hemisphere_Images():
         {"title": "Syrtis Major Hemisphere", "img_url": "http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg"},
     ]
     return hemisphere_image_urls
+
+
+# In[ ]:
+
+
+def scrape():
+    
+    scraped_data = {}
+    mars_news_results = get_Mars_News()
+    mars["mars_news_title"] = mars_news_results[0]
+    mars["mars_news"] = mars_news_results[1]
+    mars["mars_featured_image"] = get_featured_image()
+    mars["mars_weather"] = get_Mars_Weather()
+    mars["mars_facts"] = get_Mars_Facts_Table()
+    mars["mars_hemisphere_images"] = get_Mars_Hemisphere_Images()
+
+    return scraped_data
 
